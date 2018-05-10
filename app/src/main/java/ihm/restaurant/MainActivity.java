@@ -36,16 +36,37 @@ public class MainActivity extends AppCompatActivity {
     public void showMenu(View view){
         layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.popup_menu, null);
-        popupMenu = new PopupWindow(container, 400, 400,true);
-        popupMenu.showAtLocation(mainLayout, Gravity.NO_GRAVITY, 0, 0);
+        //popupMenu = new PopupWindow(container, 600, 800,true);
+        popupMenu = new PopupWindow(container, Toolbar.LayoutParams.MATCH_PARENT, Toolbar.LayoutParams.MATCH_PARENT, true);
+        switch(view.getId())
+         {
+          case R.id.button1:
+          popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.TOP, 0, 0);
+          break;
 
-        container.setOnTouchListener(new View.OnTouchListener(){
+          case R.id.button2:
+          popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.TOP, 0, 0);
+          break;
+
+          case R.id.button3:
+          popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.BOTTOM, 0, 0);
+          break;
+
+          case R.id.button4:
+               popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.BOTTOM, 0, 0);
+               break;
+         }
+
+
+
+
+       /* container.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent){
                 popupMenu.dismiss();
                 return true;
             }
-        });
+        }); */
     }
     /* AUTRE POPUP */
     /* public void showMenu(View sender) {

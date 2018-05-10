@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
+            android:onClick="showMenu"
             android:text="@string/acceder_menu" />
     </LinearLayout>
 
@@ -45,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
+            android:onClick="showMenu"
             android:text="@string/acceder_menu" />
 
         <Button
@@ -52,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
+            android:onClick="showMenu"
             android:text="@string/acceder_menu" />
     </LinearLayout>
 

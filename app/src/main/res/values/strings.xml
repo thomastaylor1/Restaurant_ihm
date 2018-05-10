@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+    <string name="acceder_menu">Accéder au menu</string>
+    <string name="menu">Menu</string>
+    <string name="entree">Entrées</string>
+    <string name="plats">Plats</string>
+    <string name="voir">Voir</string>
+    <string name="desserts">Desserts</string>
+    <string name="ile_flottante">Île flottante</string>
+    <string name="salade_chevre">Salade de chèvre</string>
+    <string name="boeuf_bourguignon">Boeuf bourguignon</string>
+</resources>

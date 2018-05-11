@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     private Button top_right;
     private Button bottom_right;
 
+    private Button btnVoir1;
+
+    private String current_menu;
+
     private PopupWindow popupMenu;
     private LayoutInflater layoutInflater;
 
@@ -31,78 +35,81 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainLayout = (LinearLayout) findViewById(R.id.main_layout);
+
+
     }
 
-    public void showMenu(View view){
+    public void showMenu(View view) {
         layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.popup_menu, null);
-        //popupMenu = new PopupWindow(container, 600, 800,true);
-        popupMenu = new PopupWindow(container, Toolbar.LayoutParams.MATCH_PARENT, Toolbar.LayoutParams.MATCH_PARENT, true);
-        switch(view.getId())
-         {
-          case R.id.button1:
-          popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.TOP, 0, 0);
-          break;
+        popupMenu = new PopupWindow(container, 600, 800, true);
+        //popupMenu = new PopupWindow(container, Toolbar.LayoutParams.MATCH_PARENT, Toolbar.LayoutParams.MATCH_PARENT, true);
+        switch (view.getId()) {
+            case R.id.button1:
+                popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.TOP, 0, 0);
+                btnVoir1 = (Button) container.findViewById(R.id.entree_voir1);
+                btnVoir1.setOnClickListener(new View.OnClickListener(){
+                    public void onClick(View view){
+                        popupMenu.dismiss();
+                        layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                        ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.salade_chevre, null);
+                        popupMenu = new PopupWindow(container, 600, 800, true);
+                        popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.TOP, 0, 0);
+                        System.out.println(current_menu);
+                    }
+                });
+                current_menu = "top_left";
+                break;
 
-          case R.id.button2:
-          popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.TOP, 0, 0);
-          break;
+            case R.id.button2:
+                popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.TOP, 0, 0);
+                current_menu = "top_right";
+                break;
 
-          case R.id.button3:
-          popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.BOTTOM, 0, 0);
-          break;
+            case R.id.button3:
+                popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.BOTTOM, 0, 0);
+                current_menu = "bottom_left";
+                break;
 
-          case R.id.button4:
-               popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.BOTTOM, 0, 0);
-               break;
-         }
-
-
-
-
-       /* container.setOnTouchListener(new View.OnTouchListener(){
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent){
-                popupMenu.dismiss();
-                return true;
-            }
-        }); */
+            case R.id.button4:
+                popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.BOTTOM, 0, 0);
+                current_menu = "bottom_right";
+                break;
+        }
     }
-    /* AUTRE POPUP */
-    /* public void showMenu(View sender) {
-            Dialog dialogMenu = new Dialog(this);
-            dialogMenu.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialogMenu.setContentView(R.layout.popup_menu);
-            dialogMenu.setCanceledOnTouchOutside(true);
-            android.widget.TextView menu_title = (TextView) dialogMenu
-                    .findViewById(R.id.menu_title);
-            //menu_title.setText(title);
 
-            /* Button yes = (Button) dialog.findViewById(R.id.alertbox_yes);
-            Button no = (Button) dialog.findViewById(R.id.alertbox_no);
-
-            yes.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //code the functionality when YES button is clicked
+    public void showPlat(View view) {
+        layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        switch (view.getId()) {
+            case R.id.entree_voir1:
+                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.salade_chevre, null);
+                popupMenu = new PopupWindow(container, 600, 800, true);
+                switch (current_menu) {
+                    case "top_left":
+                        popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.TOP, 0, 0);
+                        System.out.println(current_menu);
+                        break;
+                    case "top_right":
+                        popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.TOP, 0, 0);
+                        break;
+                    case "bottom_left":
+                        popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.BOTTOM, 0, 0);
+                        break;
+                    case "bottom_right":
+                        popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.BOTTOM, 0, 0);
+                        break;
                 }
-            });
 
-            no.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //code the functionality when NO button is clicked
-                }
-            });
+                break;
 
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(dialogMenu.getWindow().getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
-        dialogMenu.show();
-        dialogMenu.getWindow().setAttributes(lp);
-        dialogMenu.show();
+            case R.id.button2:
+
+
+            case R.id.button3:
+
+
+            case R.id.button4:
+
+        }
     }
-    */
-
 }

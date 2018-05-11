@@ -9,4 +9,8 @@
     <string name="ile_flottante">Île flottante</string>
     <string name="salade_chevre">Salade de chèvre</string>
     <string name="boeuf_bourguignon">Boeuf bourguignon</string>
+    <string name="ingredients">Ingrédients</string>
+    <string name="ingredients_salade_chevre">Salade\nCrudités\nChèvre chaud</string>
+    <string name="preparation">Temps de préparation estimé</string>
+    <string name="dix_minutes">10 minutes</string>
 </resources>

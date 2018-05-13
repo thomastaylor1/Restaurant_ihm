@@ -18,7 +18,7 @@ public class FragmentC extends Fragment {
             public void onClick(View view) {
                 FragmentMenu nextFrag= new FragmentMenu();
                 getActivity().getFragmentManager().beginTransaction()
-                        .replace(Integer.parseInt(getTag()), nextFrag,"findThisFragment")
+                        .replace(Integer.parseInt(getTag()), nextFrag, getTag())
                         .addToBackStack(null)
                         .commit();
             }

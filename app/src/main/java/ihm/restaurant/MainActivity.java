@@ -66,9 +66,9 @@ public class MainActivity extends Activity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         Fragment fragmentA = new FragmentA();
-        Fragment fragmentB = new FragmentB();
-        Fragment fragmentC = new FragmentC();
-        Fragment fragmentD = new FragmentD();
+        Fragment fragmentB = new FragmentA();
+        Fragment fragmentC = new FragmentA();
+        Fragment fragmentD = new FragmentA();
         fragmentTransaction.add(fragTopLeft.getId(), fragmentA, String.valueOf(id1));
         fragmentTransaction.add(fragTopRight.getId(), fragmentB, String.valueOf(id2));
         fragmentTransaction.add(fragBottomLeft.getId(), fragmentC, String.valueOf(id3));

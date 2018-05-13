@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class FragmentPlat extends Fragment {
     private View view;
@@ -30,6 +31,17 @@ public class FragmentPlat extends Fragment {
     @Override public View onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         readBundle(getArguments());
         view = inflater.inflate(id_plat, container, false);
+        ImageButton backButton = (ImageButton) view.findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                FragmentMenu nextFrag = new FragmentMenu();
+                getActivity().getFragmentManager().beginTransaction()
+                        .replace(Integer.parseInt(getTag()), nextFrag, getTag())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         return view;
     }
 }

@@ -12,6 +12,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/back"
+            android:src="@android:drawable/ic_menu_revert" />
         <TextView
             android:id="@+id/salade_chevre_title"
             android:layout_width="wrap_content"

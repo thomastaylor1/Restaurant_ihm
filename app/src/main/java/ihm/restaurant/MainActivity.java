@@ -1,4 +1,4 @@
-package restaurant.ihm.restaurant_test;
+package ihm.restaurant;
 
 import android.app.Activity;
 import android.app.Fragment;

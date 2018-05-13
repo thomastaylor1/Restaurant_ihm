@@ -17,7 +17,7 @@ public class FragmentA extends Fragment{
     private View view;
 
     @Override public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-        setRetainInstance(true);
+        //setRetainInstance(true);
         view = inflater.inflate(R.layout.fragment_layout, container, false);
         //Instancier vos composants graphique ici (faîtes vos findViewById)
         Button button = (Button) view.findViewById(R.id.button);
@@ -29,6 +29,15 @@ public class FragmentA extends Fragment{
                         .replace(Integer.parseInt(getTag()), nextFrag, getTag())
                         .addToBackStack(null)
                         .commit();
+            }
+        });
+
+        Button button2 = (Button) view.findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent streamIntent = new Intent(getActivity(), StreamActivity.class);
+                FragmentA.this.startActivity(streamIntent);
             }
         });
         return view;

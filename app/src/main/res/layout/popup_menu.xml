@@ -2,16 +2,18 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:id="@+id/menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#444444"
+        android:background="#349e00"
         android:minHeight="400dp"
         android:minWidth="300dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,22 +24,23 @@
                 android:id="@+id/backButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_weight="0"
                 android:adjustViewBounds="false"
+                android:background="@drawable/circle_button"
                 android:contentDescription="@string/back"
-                android:cropToPadding="false"
                 android:src="@android:drawable/ic_menu_revert" />
 
             <TextView
                 android:id="@+id/menu_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="@string/menu"
                 android:textColor="@color/black"
-                android:textSize="17sp" />
+                android:textSize="30sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,9 +53,12 @@
                 android:id="@+id/menu_entree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
                 android:text="@string/entree"
+                android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="17sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/entree1"
@@ -64,13 +70,16 @@
                     android:id="@+id/entree_text1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/salade_chevre" />
+                    android:text="@string/salade_chevre"
+                    android:textColor="@color/black" />
 
                 <Button
                     android:id="@+id/entree_voir1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:onClick="showPlat"
                     android:text="@string/voir" />
@@ -91,7 +100,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/plats"
                 android:textColor="@color/black"
-                android:textSize="17sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/plats1"
@@ -103,13 +113,16 @@
                     android:id="@+id/plats_text1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/boeuf_bourguignon" />
+                    android:text="@string/boeuf_bourguignon"
+                    android:textColor="@color/black" />
 
                 <Button
                     android:id="@+id/plats_voir1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:text="@string/voir" />
 
@@ -129,7 +142,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/desserts"
                 android:textColor="@color/black"
-                android:textSize="17sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/desserts1"
@@ -141,13 +155,16 @@
                     android:id="@+id/desserts_text1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/ile_flottante" />
+                    android:text="@string/ile_flottante"
+                    android:textColor="@color/black" />
 
                 <Button
                     android:id="@+id/desserts_voir1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:text="@string/voir" />
 

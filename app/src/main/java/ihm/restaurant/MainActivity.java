@@ -25,6 +25,9 @@ public class MainActivity extends Activity {
         LinearLayout fragmentsLayoutTop = (LinearLayout) findViewById(R.id.layout_top);
         LinearLayout fragmentsLayoutBottom = (LinearLayout) findViewById(R.id.layout_bottom);
 
+
+
+
         LinearLayout fragTopLeft = new LinearLayout(this);
         LayoutParams params = new LinearLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT,
@@ -69,10 +72,16 @@ public class MainActivity extends Activity {
         Fragment fragmentB = new FragmentA();
         Fragment fragmentC = new FragmentA();
         Fragment fragmentD = new FragmentA();
+        Fragment fragmentBack = new FragmentStream();
+        //fragmentTransaction.add(android.R.id.content, fragmentBack);
+
         fragmentTransaction.add(fragTopLeft.getId(), fragmentA, String.valueOf(id1));
         fragmentTransaction.add(fragTopRight.getId(), fragmentB, String.valueOf(id2));
         fragmentTransaction.add(fragBottomLeft.getId(), fragmentC, String.valueOf(id3));
         fragmentTransaction.add(fragBottomRight.getId(), fragmentD, String.valueOf(id4));
+
+
+
         fragmentTransaction.commit();
 
 

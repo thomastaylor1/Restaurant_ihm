@@ -1,61 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="5dp"
-    android:id="@+id/main_layout"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/row1"
+        android:id="@+id/layout_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="50"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:rotation="180">
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:onClick="showMenu"
-            android:text="@string/acceder_menu" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:onClick="showMenu"
-            android:text="@string/acceder_menu" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/row2"
+        android:id="@+id/layout_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="50"
-        android:gravity="bottom"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:onClick="showMenu"
-            android:text="@string/acceder_menu" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:onClick="showMenu"
-            android:text="@string/acceder_menu" />
-    </LinearLayout>
+        android:layout_weight="1"
+        android:orientation="horizontal"></LinearLayout>
 
 </LinearLayout>

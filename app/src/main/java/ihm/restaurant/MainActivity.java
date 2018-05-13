@@ -1,115 +1,80 @@
-package ihm.restaurant;
-
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.*;
-import android.widget.*;
+package restaurant.ihm.restaurant_test;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.*;
 
-
-public class MainActivity extends AppCompatActivity {
-
-    private Context mContext;
-    private Activity mActivity;
-
-    private LinearLayout mainLayout;
-    private Button top_left;
-    private Button bottom_left;
-    private Button top_right;
-    private Button bottom_right;
-
-    private Button btnVoir1;
-
-    private String current_menu;
-
-    private PopupWindow popupMenu;
-    private LayoutInflater layoutInflater;
-
+public class MainActivity extends Activity {
+    private Fragment fragmentA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        mainLayout = (LinearLayout) findViewById(R.id.main_layout);
+        LinearLayout fragmentsLayoutTop = (LinearLayout) findViewById(R.id.layout_top);
+        LinearLayout fragmentsLayoutBottom = (LinearLayout) findViewById(R.id.layout_bottom);
+
+        LinearLayout fragTopLeft = new LinearLayout(this);
+        LayoutParams params = new LinearLayout.LayoutParams(
+                LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT,
+                1.0f
+
+        );
+        //params.gravity = Gravity.BOTTOM;
+        fragTopLeft.setLayoutParams(params);
+        fragTopLeft.setOrientation(LinearLayout.HORIZONTAL);
+        int id1 = View.generateViewId();
+        fragTopLeft.setId(id1);
+
+        LinearLayout fragTopRight = new LinearLayout(this);
+        fragTopRight.setLayoutParams(params);
+        fragTopRight.setOrientation(LinearLayout.HORIZONTAL);
+        int id2 = View.generateViewId();
+        fragTopRight.setId(id2);
+
+        fragmentsLayoutTop.addView(fragTopLeft);
+        fragmentsLayoutTop.addView(fragTopRight);
+
+        LinearLayout fragBottomLeft = new LinearLayout(this);
+        fragBottomLeft.setLayoutParams(params);
+        fragBottomLeft.setOrientation(LinearLayout.HORIZONTAL);
+        int id3 = View.generateViewId();
+        fragBottomLeft.setId(id3);
+
+        LinearLayout fragBottomRight = new LinearLayout(this);
+        fragBottomRight.setLayoutParams(params);
+        fragBottomRight.setOrientation(LinearLayout.HORIZONTAL);
+        int id4 = View.generateViewId();
+        fragBottomRight.setId(id4);
+
+        fragmentsLayoutBottom.addView(fragBottomLeft);
+        fragmentsLayoutBottom.addView(fragBottomRight);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        Fragment fragmentA = new FragmentA();
+        Fragment fragmentB = new FragmentB();
+        Fragment fragmentC = new FragmentC();
+        Fragment fragmentD = new FragmentD();
+        fragmentTransaction.add(fragTopLeft.getId(), fragmentA, String.valueOf(id1));
+        fragmentTransaction.add(fragTopRight.getId(), fragmentB, String.valueOf(id2));
+        fragmentTransaction.add(fragBottomLeft.getId(), fragmentC, String.valueOf(id3));
+        fragmentTransaction.add(fragBottomRight.getId(), fragmentD, String.valueOf(id4));
+        fragmentTransaction.commit();
 
 
-    }
-
-    public void showMenu(View view) {
-        layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-        ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.popup_menu, null);
-        popupMenu = new PopupWindow(container, 600, 800, true);
-        //popupMenu = new PopupWindow(container, Toolbar.LayoutParams.MATCH_PARENT, Toolbar.LayoutParams.MATCH_PARENT, true);
-        switch (view.getId()) {
-            case R.id.button1:
-                popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.TOP, 0, 0);
-                btnVoir1 = (Button) container.findViewById(R.id.entree_voir1);
-                btnVoir1.setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View view){
-                        popupMenu.dismiss();
-                        layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                        ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.salade_chevre, null);
-                        popupMenu = new PopupWindow(container, 600, 800, true);
-                        popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.TOP, 0, 0);
-                        System.out.println(current_menu);
-                    }
-                });
-                current_menu = "top_left";
-                break;
-
-            case R.id.button2:
-                popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.TOP, 0, 0);
-                current_menu = "top_right";
-                break;
-
-            case R.id.button3:
-                popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.BOTTOM, 0, 0);
-                current_menu = "bottom_left";
-                break;
-
-            case R.id.button4:
-                popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.BOTTOM, 0, 0);
-                current_menu = "bottom_right";
-                break;
-        }
-    }
-
-    public void showPlat(View view) {
-        layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-        switch (view.getId()) {
-            case R.id.entree_voir1:
-                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.salade_chevre, null);
-                popupMenu = new PopupWindow(container, 600, 800, true);
-                switch (current_menu) {
-                    case "top_left":
-                        popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.TOP, 0, 0);
-                        System.out.println(current_menu);
-                        break;
-                    case "top_right":
-                        popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.TOP, 0, 0);
-                        break;
-                    case "bottom_left":
-                        popupMenu.showAtLocation(mainLayout, Gravity.LEFT | Gravity.BOTTOM, 0, 0);
-                        break;
-                    case "bottom_right":
-                        popupMenu.showAtLocation(mainLayout, Gravity.RIGHT | Gravity.BOTTOM, 0, 0);
-                        break;
-                }
-
-                break;
-
-            case R.id.button2:
-
-
-            case R.id.button3:
-
-
-            case R.id.button4:
-
-        }
     }
 }

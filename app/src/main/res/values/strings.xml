@@ -13,6 +13,13 @@
     <string name="ingredients_salade_chevre">Salade\nCrudités\nChèvre chaud</string>
     <string name="preparation">Temps de préparation estimé</string>
     <string name="dix_minutes">10 minutes</string>
+    <string name="cinq_minutes">5 minutes</string>
     <string name="back">Retour</string>
     <string name="acceder_stream">Accéder au live</string>
+    <string name="saumon_airelles">Saumon aux airelles</string>
+    <string name="poulet_roti">Poulet rôti</string>
+    <string name="mousse_chocolat">Mousse au chocolat</string>
+    <string name="tarte_poireaux">Tarte aux poireaux</string>
+    <string name="oeufs_mimosa">Oeufs mimosa</string>
+    <string name="ingredients_ile">Crème anglaise\nOeufs en neige\nCaramel</string>
 </resources>

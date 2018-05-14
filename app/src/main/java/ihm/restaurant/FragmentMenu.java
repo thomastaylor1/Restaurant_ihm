@@ -37,6 +37,18 @@ public class FragmentMenu extends Fragment {
                         .commit();
             }
         });
+
+        Button desserts_voir1 = (Button) view.findViewById(R.id.desserts_voir1);
+        desserts_voir1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentPlat nextFrag = FragmentPlat.newInstance(R.layout.ile_flottante);
+                getActivity().getFragmentManager().beginTransaction()
+                        .replace(Integer.parseInt(getTag()), nextFrag, getTag())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         return view;
     }
 }

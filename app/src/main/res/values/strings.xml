@@ -22,4 +22,6 @@
     <string name="tarte_poireaux">Tarte aux poireaux</string>
     <string name="oeufs_mimosa">Oeufs mimosa</string>
     <string name="ingredients_ile">Crème anglaise\nOeufs en neige\nCaramel</string>
+    <string name="ingredients_poulet_roti">Poulet rôti\nFrites\nOignons</string>
+    <string name="ingredients_oeufs">Oeufs\nMayonnaise\nCiboulette</string>
 </resources>

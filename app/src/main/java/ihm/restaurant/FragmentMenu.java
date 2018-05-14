@@ -26,6 +26,18 @@ public class FragmentMenu extends Fragment {
             }
         });
 
+        Button entree_voir2 = (Button) view.findViewById(R.id.entree_voir2);
+        entree_voir2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentPlat nextFrag = FragmentPlat.newInstance(R.layout.oeufs_mimosa);
+                getActivity().getFragmentManager().beginTransaction()
+                        .replace(Integer.parseInt(getTag()), nextFrag, getTag())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
         Button entree_voir1 = (Button) view.findViewById(R.id.entree_voir1);
         entree_voir1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +55,18 @@ public class FragmentMenu extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentPlat nextFrag = FragmentPlat.newInstance(R.layout.ile_flottante);
+                getActivity().getFragmentManager().beginTransaction()
+                        .replace(Integer.parseInt(getTag()), nextFrag, getTag())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        Button plats_voir2 = (Button) view.findViewById(R.id.plats_voir2);
+        plats_voir2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentPlat nextFrag = FragmentPlat.newInstance(R.layout.poulet_roti);
                 getActivity().getFragmentManager().beginTransaction()
                         .replace(Integer.parseInt(getTag()), nextFrag, getTag())
                         .addToBackStack(null)
